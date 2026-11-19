@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@import "@svar-ui/vue-filemanager/all.css";
+
+
+/* =========================================================
+   EINZIGE QUELLE FÜR FARBEN
+   Hier ändern → gesamte App aktualisiert sich.
+   ========================================================= */
+@theme {
+  /* Flächen */
+  --color-bg:        #141920;   /* Body */
+  --color-surface:   #1e242b;   /* Cards */
+  --color-elevated:  #2a313a;   /* Toasts, Popovers */
+  --color-console:   #0f141a;   /* Terminal */
+
+  /* Text */
+  --color-fg:        #e1e8ee;
+  --color-muted:     #9aa6b2;
+  --color-dim:       #6b7684;
+
+  /* Linien */
+  --color-border:    #262d36;
+
+  /* Akzent */
+  --color-accent:         #57c785;
+  --color-accent-pressed: #45a96a;
+
+  --color-fg-hover:     #ffffff;
+  --color-muted-hover:  #c4cdd6;
+  --color-accent-hover:   #6dd79a;
+
+  /* Status */
+  --color-danger:   #e26b6b;
+  --color-warning:  #e6b74a;
+  --color-info:     #6aa7e6;
+}
+
+html, body, #app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  @apply text-fg antialiased;
+  background-color: var(--color-bg);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Sileo-Toasts an Tokens binden */
+:root {
+  --sileo-bg:             var(--color-elevated);
+  --sileo-color:          var(--color-fg);
+  --sileo-border:         var(--color-border);
+  --sileo-success-bg:     var(--color-elevated);
+  --sileo-success-border: var(--color-accent);
+  --sileo-success-color:  var(--color-accent);
+  --sileo-error-bg:       var(--color-elevated);
+  --sileo-error-border:   var(--color-danger);
+  --sileo-error-color:    var(--color-danger);
+  --sileo-info-bg:        var(--color-elevated);
+  --sileo-info-border:    var(--color-info);
+  --sileo-info-color:     var(--color-info);
+  --sileo-warning-bg:     var(--color-elevated);
+  --sileo-warning-border: var(--color-warning);
+  --sileo-warning-color:  var(--color-warning);
+}
+
+div[role="status"] [data-sileo-toast] {
+  background: var(--color-elevated) !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-fg) !important;
+  border-radius: 10px !important;
+}
+
+
+.wx-willow-dark-theme {
+  --wx-background: var(--bg-surface) !important;
+  --wx-background-alt: var(--bg-surface) !important;
+  --wx-background-hover: var(--color-elevated) !important;
+  --wx-color-primary: var(--color-accent) !important;
+  --wx-color-primary-font: #141920 !important;
+  --wx-color-font: var(--color-fg) !important;
+  --wx-color-font-alt: var(--color-muted) !important;
+  --wx-color-secondary: var(--color-elevated) !important;
+  --wx-border: 1px solid var(--color-border) !important;
+  --wx-fm-background: var(--bg-surface) !important;
+}
+
+.wx-menu {
+  background: var(--color-elevated) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}

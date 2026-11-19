@@ -1,0 +1,13 @@
+id: paper
+display_name: "PaperMC Proxy Server"
+detect:
+  image_patterns: ["itzg/mc-proxy*"]
+  env: { TYPE: "VELOCITY" }
+fields:
+  server:
+    port:        { type: int,    default: 25565, editable: true }
+    motd:        { type: string, default: "A Minecraft Server", editable: true }
+    max_players: { type: int,    default: 20,    editable: true }
+  managed:
+    data_path: { type: string, default: "/data", editable: false }
+    rcon:      { type: object, default: { enabled: true, port: 25575 }, editable: false }

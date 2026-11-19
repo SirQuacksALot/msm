@@ -1,0 +1,14 @@
+id: bedrock
+display_name: "Bedrock Server"
+detect:
+  image_patterns: ["itzg/minecraft-bedrock-server*"]
+fields:
+  server:
+    port:        { type: int,    default: 19132, editable: true }
+    level_name:  { type: string, default: "Bedrock level", editable: true }
+    max_players: { type: int,    default: 10,    editable: true }
+    difficulty:  { type: enum,   values: [peaceful, easy, normal, hard], default: easy, editable: true }
+    gamemode:    { type: enum,   values: [survival, creative, adventure], default: survival, editable: true }
+  managed:
+    data_path: { type: string, default: "/data", editable: false }
+    rcon:      { type: object, default: { enabled: false, port: 19132 }, editable: false }

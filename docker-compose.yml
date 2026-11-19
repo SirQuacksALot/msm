@@ -1,0 +1,92 @@
+services:
+  manager:
+    build: .
+    ports:
+      # - "127.0.0.1:8080:8080"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./instances:/app/instances
+      - ./backups:/app/backups
+    environment:
+      - STACK_PROJECT=${COMPOSE_PROJECT_NAME}
+    labels:
+      - "mc-manager.enable=true"
+      - "mc-manager.data-root=/data"
+
+  survival:
+    image: itzg/minecraft-server:latest
+    labels:
+      - "mc-manager.enable=true"
+      - "mc-manager.template=paper"
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "secret"
+    # ports:
+    #  - "127.0.0.1:25566:25565"
+
+  proxy:
+    image: itzg/mc-proxy
+    labels:
+      - "mc-manager.enable=true"
+      - "mc-manager.template=velocity"
+      - "mc-manager.data-root=/server"
+    environment:
+      TYPE: "VELOCITY"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "secret"
+    ports:
+      - "127.0.0.1:25565:25577"
+
+
+
+  survival-4:
+    image: itzg/minecraft-server:latest
+    labels:
+      - "mc-manager.enable=true"
+      - "mc-manager.template=paper"
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "secret"
+    # ports:
+    #  - "127.0.0.1:25566:25565"
+
+
+  survival-3:
+    image: itzg/minecraft-server:latest
+    labels:
+      - "mc-manager.enable=true"
+      - "mc-manager.template=paper"
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "secret"
+
+
+
+  survival-2:
+    image: itzg/minecraft-server:latest
+    labels:
+      - "mc-manager.enable=true"
+      - "mc-manager.template=paper"
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "secret"
+
+  survival-1:
+    image: itzg/minecraft-server:latest
+    labels:
+      - "mc-manager.enable=true"
+      - "mc-manager.template=paper"
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "secret"
