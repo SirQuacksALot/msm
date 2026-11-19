@@ -4,7 +4,7 @@
 
 is a web-based management interface for Minecraft servers running within a Docker Compose stack. It provides a centralized and intuitive way to manage and monitor all Minecraft server instances and their services.
 
-> [!WARNING] Warning - No Authentication
+> [!WARNING]
 >
 > This project does not include built-in authentication. It is designed to run behind a reverse proxy with a properly configured authentication layer. A simple proxy-level authentication mechanism is sufficient if it meets your security requirements.
 
@@ -65,17 +65,8 @@ docker compose up -d
 3. Access UI at http://127.0.0.1:8080
 
 
-> [!NOTE] Note - Localhost & Reverse Proxy
->
+> [!NOTE]
 >
 > The provided example is configured for localhost access only. If you need access beyond localhost, make sure to configure a reverse proxy with an authentication layer of your choice.
 >
 > Without proper authentication, anyone who can access the application may also gain access to the Minecraft servers managed by it, potentially allowing unauthorized control or misuse.
-
-
----
-
-**Todo list:**
-
-- Kleine liste der erkannten servers mit "name", "öffnen" button und "files" button als nav bar 
-
